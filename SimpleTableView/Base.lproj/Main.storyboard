@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SimpleTableView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,141 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hlZ-6d-fFC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="Obv-Ta-MLL"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="gfI-Zh-A49"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="hlZ-6d-fFC" id="cXo-Hw-GaU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="1un-Ra-qGu">
+            <objects>
+                <viewController id="ihr-hC-cV0" customClass="UITableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0TG-oN-W3i"/>
+                        <viewControllerLayoutGuide type="bottom" id="FW4-fQ-ejm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S7F-wW-HyN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uEB-Xp-8D2">
+                                <rect key="frame" x="0.0" y="0.0" width="144" height="76"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adecco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylG-fb-jus">
+                                <rect key="frame" x="177" y="20" width="174" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="0.97821907720000001" green="0.0" blue="0.14106802409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="searchButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6R2-uB-ic5">
+                                <rect key="frame" x="104" y="215" width="45" height="42"/>
+                                <accessibility key="accessibilityConfiguration" identifier="searchButton">
+                                    <accessibilityTraits key="traits" button="YES" link="YES" searchField="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Button" image="searchi"/>
+                                <connections>
+                                    <action selector="goForward" destination="5ra-u3-Fm5" eventType="touchUpInside" id="jLu-q1-eq5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.97821907720000001" green="0.0" blue="0.14106802409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="viewMain" label="viewLabel">
+                            <accessibilityTraits key="traits" button="YES" link="YES" image="YES" selected="YES" staticText="YES" searchField="YES" causesPageTurn="YES"/>
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ra-u3-Fm5" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794" y="380"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Vot-Je-o1b">
+            <objects>
+                <viewController storyboardIdentifier="results" id="gTZ-xi-Nkv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7S6-TM-d0e"/>
+                        <viewControllerLayoutGuide type="bottom" id="FPl-K9-FNq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y95-kz-J4e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c3e-Z0-mnZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TextCell" selectionStyle="blue" showsReorderControl="YES" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="TextCell" focusStyle="custom" textLabel="sfe-Cz-j5y" detailTextLabel="T68-po-M6K" imageView="TC9-KY-coX" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="jaQ-gk-ybh">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jaQ-gk-ybh" id="h5s-0V-KAZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sfe-Cz-j5y">
+                                                    <rect key="frame" x="80" y="13" width="32" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="textLabel"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T68-po-M6K">
+                                                    <rect key="frame" x="80" y="33" width="31" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="heart" highlightedImage="heartFull" id="TC9-KY-coX">
+                                                    <rect key="frame" x="15" y="4" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="saveButton">
+                                                        <accessibilityTraits key="traits" button="YES" link="YES" image="YES" updatesFrequently="YES" adjustable="YES" causesPageTurn="YES"/>
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="TextCell">
+                                            <accessibilityTraits key="traits" button="YES" link="YES" staticText="YES" updatesFrequently="YES" allowsDirectInteraction="YES" causesPageTurn="YES"/>
+                                        </accessibility>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tuz-RK-EIj"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gYL-Rs-hOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1496" y="380"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="heart" width="50" height="50"/>
+        <image name="heartFull" width="50" height="50"/>
+        <image name="searchi" width="50" height="50"/>
+    </resources>
 </document>
